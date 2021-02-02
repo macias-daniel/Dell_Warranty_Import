@@ -17,9 +17,9 @@ Scheduled_Job_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcesso
 
         app_utils.function_log('Scheduled_Job_Utils', 'get_get_all_contracts_schedule');
 
-        // Grab schedule
+        // Grab Scheduled Get All Contracts (Scheduled script execution)
         var scheduled_job_gr = new GlideRecord('sysauto_script');
-        if (scheduled_job_gr.get('64f5cd0507e120103af7f2ae7c1ed09d')) { // Query get all contracts schedule
+        if (scheduled_job_gr.get('59baddde078e20103af7f2ae7c1ed02e')) { // Query get all contracts schedule
 
             // Define variables from schedule
             var type = scheduled_job_gr.getValue('run_type');
@@ -96,14 +96,6 @@ Scheduled_Job_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcesso
                 time_format: time_format
             };
 
-            if (scheduled_job_gr.get('7958f45e07e960103af7f2ae7c1ed070')) {
-                scheduled_job_gr.query();
-
-                while (scheduled_job_gr.next()) {
-                    gs.executeNow(scheduled_job_gr);
-                }
-            }
-
             // Return object as string
             return JSON.stringify(data);
         }
@@ -134,12 +126,12 @@ Scheduled_Job_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcesso
             gs.addErrorMessage('Please specifiy a "Day" in your contract schedule before saving.');
             return;
         } else if (time_format == 'hh:mm:ss a' || time_format == 'hh.mm.ss a') {  // If time format is standard, ensure time is correct or error out
-            if ((hour < 0 || hour > 12 || hour == '') || (minute < 0 || minute > 60 || minute == '') || (second < 0 || second > 60 || second == '')) {
+            if ((hour < 0 || hour > 12 || hour == '') || (minute < 0 || minute >= 60 || minute == '') || (second < 0 || second >= 60 || second == '')) {
                 gs.addErrorMessage('Please specifiy a correct "Time" in your contract schedule before saving.');
                 return;
             }
         } else if (time_format == 'HH:mm:ss' || time_format == 'HH.mm.ss') { // If time format is 24 hour, ensure time is correct or error out	
-            if ((hour < 0 || hour > 24 || hour == '') || (minute < 0 || minute > 60 || minute == '') || (second < 0 || second > 60 || second == '')) {
+            if ((hour < 0 || hour >= 24 || hour == '') || (minute < 0 || minute >= 60 || minute == '') || (second < 0 || second >= 60 || second == '')) {
                 gs.addErrorMessage('Please specifiy a correct "Time" in your contract schedule before saving.');
                 return;
             }
@@ -174,9 +166,9 @@ Scheduled_Job_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcesso
                 break;
         }
 
-        // Grab schedule
+        // Grab Scheduled Get All Contracts (Scheduled script execution)
         var scheduled_job_gr = new GlideRecord('sysauto_script');
-        if (scheduled_job_gr.get('64f5cd0507e120103af7f2ae7c1ed09d')) {
+        if (scheduled_job_gr.get('59baddde078e20103af7f2ae7c1ed02e')) {
             if (frequency == 'weekly' || frequency == 'monthly') {
                 scheduled_job_gr.setValue(run_dayOrWeek, run_day);
             }
@@ -201,10 +193,9 @@ Scheduled_Job_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcesso
 
         app_utils.function_log('Scheduled_Job_Utils', 'get_all_contracts_now');
 
-        // Grab GR from sript table
-        var scheduled_job_gr = new GlideRecord('sysauto_script');
-
-        if (scheduled_job_gr.get('64f5cd0507e120103af7f2ae7c1ed09d')) {
+        // Grab Scheduled Get All Contracts (Scheduled script execution)
+		var scheduled_job_gr = new GlideRecord('sysauto_script');
+        if (scheduled_job_gr.get('59baddde078e20103af7f2ae7c1ed02e')) {
             scheduled_job_gr.query();
 
             while (scheduled_job_gr.next()) {
@@ -218,6 +209,7 @@ Scheduled_Job_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcesso
 	// Refresh time zone of chosen scheduled job script
     refresh_schedule_time_zone: function(scheduled_job_table, scheduled_job_sys_id, minute) {
 
+		// Grab Scheduled Get All Contracts (Scheduled script execution)
         var schedule_table_gr = new GlideRecord(scheduled_job_table);
         if (schedule_table_gr.get(scheduled_job_sys_id)) {
             // Create new GT object, set Display Value (session time zone) for object
@@ -257,13 +249,13 @@ Scheduled_Job_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcesso
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 06:45:36</sys_created_on>
         <sys_id>e057ea4e07c620103af7f2ae7c1ed03f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Scheduled_Job_Utils</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_script_include_e057ea4e07c620103af7f2ae7c1ed03f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-02 06:45:36</sys_updated_on>
+        <sys_updated_on>2021-02-02 19:54:58</sys_updated_on>
     </sys_script_include>
 </record_update>

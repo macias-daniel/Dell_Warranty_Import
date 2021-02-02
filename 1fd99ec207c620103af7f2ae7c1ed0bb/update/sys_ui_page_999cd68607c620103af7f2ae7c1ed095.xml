@@ -722,29 +722,21 @@ jQuery("#active-checkbox-contract").click(function() {
 				<div class="row text-center">
 					
 					<!-- Website Link -->
-					<div class="col-4">
+					<div class="col-6">
 						<strong>
 							<p>On the Web</p>
 						</strong>
 						<p id="toggle-support-settings">
-							<a href="#">www.daniels-thoughts.com</a>
+							<a href="#">www.by-daniel.com</a>
 						</p>
 					</div>
 					
-					<!-- Phone Number -->
-					<div class="col-4">
-						<strong>
-							<p>By Phone</p>
-						</strong>
-						<p>+1 (833) 921-1919</p>
-					</div>
-					
 					<!-- Email -->
-					<div class="col-4">
+					<div class="col-6">
 						<strong>
 							<p>By Email</p>
 						</strong>
-						<p>support@daniels-thoughts.com</p>
+						<p>need.any.type.of.help@outlook.com</p>
 					</div>
 
 				</div>
@@ -759,13 +751,13 @@ jQuery("#active-checkbox-contract").click(function() {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 05:58:35</sys_created_on>
         <sys_id>999cd68607c620103af7f2ae7c1ed095</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>settings</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy/>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_ui_page_999cd68607c620103af7f2ae7c1ed095</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-02 06:30:50</sys_updated_on>
+        <sys_updated_on>2021-02-02 20:03:09</sys_updated_on>
     </sys_ui_page>
 </record_update>

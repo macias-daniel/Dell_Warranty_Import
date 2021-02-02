@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="DELETE">
+        <choices/>
+        <description>Dell Warranty API End Point</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_500374_dell_warr.bearer_token_end_point</name>
+        <read_roles/>
+        <suffix>bearer_token_end_point</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-02 19:26:35</sys_created_on>
+        <sys_id>3675551e078e20103af7f2ae7c1ed032</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_500374_dell_warr.bearer_token_end_point</sys_name>
+        <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
+        <sys_update_name>sys_properties_3675551e078e20103af7f2ae7c1ed032</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-02 19:26:35</sys_updated_on>
+        <type>string</type>
+        <value>https://apigtwb2c.us.dell.com/auth/oauth/v2/token</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="DELETE" query="documentkey=3675551e078e20103af7f2ae7c1ed032"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</application>
+        <file_path/>
+        <instance_id>c93a1f4ddb1f9f004f035d00cf9619fb</instance_id>
+        <instance_name>dev64536</instance_name>
+        <name>sys_properties_3675551e078e20103af7f2ae7c1ed032</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>Dell Warranty API End Point</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>x_500374_dell_warr.bearer_token_end_point</name><read_roles/><suffix>bearer_token_end_point</suffix><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-02-02 19:26:35</sys_created_on><sys_id>3675551e078e20103af7f2ae7c1ed032</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_500374_dell_warr.bearer_token_end_point</sys_name><sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package><sys_policy/><sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope><sys_update_name>sys_properties_3675551e078e20103af7f2ae7c1ed032</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-02-02 19:26:35</sys_updated_on><type>string</type><value>https://apigtwb2c.us.dell.com/auth/oauth/v2/token</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=3675551e078e20103af7f2ae7c1ed032"/></record_update>]]></payload>
+        <payload_hash>-1877917390</payload_hash>
+        <record_name>x_500374_dell_warr.bearer_token_end_point</record_name>
+        <reverted_from/>
+        <source>5fd99ec207c620103af7f2ae7c1ed0bd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-02 19:26:36</sys_created_on>
+        <sys_id>ed95911e078e20103af7f2ae7c1ed0cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1776435ff9a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-02 19:26:36</sys_updated_on>
+        <type>System Property</type>
+        <update_guid>a195911e988e2010909b50464028c2cd</update_guid>
+        <update_guid_history>a195911e988e2010909b50464028c2cd:-1877917390</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-02 19:57:59</sys_created_on>
+        <sys_db_object display_value="" name="sys_properties">sys_properties</sys_db_object>
+        <sys_id>07b9646ca5714b3a806aecd9f20190e4</sys_id>
+        <sys_metadata>3675551e078e20103af7f2ae7c1ed032</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_500374_dell_warr.bearer_token_end_point</sys_name>
+        <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
+        <sys_scope_delete display_value="">9944abc605bd48009d408f9c4a5e8400</sys_scope_delete>
+        <sys_update_name>sys_properties_3675551e078e20103af7f2ae7c1ed032</sys_update_name>
+        <sys_update_version display_value="sys_properties_3675551e078e20103af7f2ae7c1ed032">ed95911e078e20103af7f2ae7c1ed0cd</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-02 19:57:59</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
