@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="API Key" max_length="40" name="x_500374_dell_warr_api_key" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Client ID" max_length="100" name="client_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Client Secret" max_length="100" name="client_secret" type="string"/>
+    </element>
+</database>

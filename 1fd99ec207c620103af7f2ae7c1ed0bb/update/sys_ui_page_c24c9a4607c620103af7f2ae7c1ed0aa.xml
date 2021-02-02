@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[// Open Dell API Retrieval redirect modal redirect modal, and pass url sysparm
+jQuery('#dell-api-kb').click(function() {
+	
+	GlideModal.get().destroy();
+	
+	var kb_redirect_modal = new GlideModal('x_500374_dell_warr_kb_redirect_modal'); 			      	
+	kb_redirect_modal.setPreference('sysparm_ui_page', 'dell-api-key-retrieval'); // Sets where modal where redirect
+	kb_redirect_modal.setWidth(550);
+    kb_redirect_modal.render();
+	
+});
+
+// Open Dell API Retrieval redirect modal redirect modal, and pass url sysparm
+jQuery('#dell-warranty-import-kb').click(function() {
+	
+	GlideModal.get().destroy();
+	
+	var kb_redirect_modal = new GlideModal('x_500374_dell_warr_kb_redirect_modal'); 			      	
+	kb_redirect_modal.setPreference('sysparm_ui_page', 'kb'); // Sets where modal where redirect
+	kb_redirect_modal.setWidth(550);
+    kb_redirect_modal.render();
+	
+});]]></client_script>
+        <description>Modal giving user info about how to go about adding their Dell API credentials to Dell Warranty Import. Modal accessed through Dell Warranty Import's setting module.</description>
+        <direct>false</direct>
+        <endpoint>x_500374_dell_warr_api_info_modal.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	<style>
+	    .modal-header .close {
+		    padding: .6rem .65rem !important;
+		}
+	</style>
+	<h3>API Key Info</h3>
+	<hr/>
+	<br/>
+	<p>Dell provides each customer with their own API key to access all of their contracts for purchased hardware. For directions on how to retrieve your Dell API Client ID and Client Secret, please reference Dell Warranty Import's Knowledge Base article:$[SP]<a id = "dell-api-kb" href = "#">API Key Retrieval</a>. Once the proper API information is retrieved input the key(s) to retrieve your contracts.</p>
+	<br/>	
+	<p>Any more questions? Navigate to the$[SP]<a id="dell-warranty-import-kb" href="#">Dell Warranty Import Knowlege Base</a>$[SP]for assistance.</p>
+	<br/>
+	<div class="modal-footer">
+		<button id="close" type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Close</button>
+	</div>
+</j:jelly>]]></html>
+        <name>api_info_modal</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-02 05:57:15</sys_created_on>
+        <sys_id>c24c9a4607c620103af7f2ae7c1ed0aa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>api_info_modal</sys_name>
+        <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
+        <sys_update_name>sys_ui_page_c24c9a4607c620103af7f2ae7c1ed0aa</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-02 05:57:15</sys_updated_on>
+    </sys_ui_page>
+</record_update>

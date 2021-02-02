@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="Dell Warranty Import">8afad24607c620103af7f2ae7c1ed0a2</application>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>REPORT</link_type>
+        <map_page/>
+        <mobile_title>Expiring Contracts (90 Days)</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name/>
+        <order>303</order>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report display_value="Expiring Contracts (90 Days)">ea70a24a07c620103af7f2ae7c1ed080</report>
+        <roles>x_500374_dell_warr.import_admin</roles>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-02 06:18:12</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c7fcd68607c620103af7f2ae7c1ed0c7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Expiring Contracts (90 Days)</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
+        <sys_update_name>sys_app_module_c7fcd68607c620103af7f2ae7c1ed0c7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-02 06:18:12</sys_updated_on>
+        <timeline_page/>
+        <title>Expiring Contracts (90 Days)</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+</record_update>
