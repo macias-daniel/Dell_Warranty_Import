@@ -6,8 +6,8 @@
         <auth_code_lifespan>0</auth_code_lifespan>
         <auth_url/>
         <certificate_url/>
-        <client_id>null</client_id>
-        <client_secret>5QWuLk55pBE=</client_secret>
+        <client_id>l774042ed3467c42319a19af34e37a5d95</client_id>
+        <client_secret>55e11aae99744442b6e5107908920305</client_secret>
         <client_uuid>5278aa8e07c620103af7f2ae7c1ed09f</client_uuid>
         <code_challenge_method>S256</code_challenge_method>
         <comments/>
@@ -30,14 +30,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 06:50:46</sys_created_on>
         <sys_id>d278aa8e07c620103af7f2ae7c1ed09f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Dell Bearer Request</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy/>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>oauth_entity_d278aa8e07c620103af7f2ae7c1ed09f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-02 06:50:46</sys_updated_on>
+        <sys_updated_on>2021-02-02 20:14:26</sys_updated_on>
         <token_url>https://apigtwb2c.us.dell.com/auth/oauth/v2/token</token_url>
         <type>oauth_provider</type>
         <use_mutual_auth>false</use_mutual_auth>

@@ -110,20 +110,20 @@ App_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         var settings; // Object to return back
 
         // Query and create variables storing file active states
-		
-		// Get Contract
+
+        // Get Contract
         if (ui_action_gr.get("a7c6595e078e20103af7f2ae7c1ed084"))
             get_contract = ui_action_gr.getValue('active');
 
-		// Get Contract for New Asset
+        // Get Contract for New Asset
         if (business_rule_gr.get('6f47dd5e078e20103af7f2ae7c1ed0fa'))
             get_new_asset_contract = business_rule_gr.getValue('active');
 
-		// Get Contract on Asset Update
+        // Get Contract on Asset Update
         if (business_rule_gr.get('dd975d5e078e20103af7f2ae7c1ed029'))
             get_updated_asset_contract = business_rule_gr.getValue('active');
 
-		// Scheduled email of report
+        // Scheduled email of report
         if (scheduled_email_gr.get('eda0264a07c620103af7f2ae7c1ed0d6')) {
             expiring_contracts_notification = scheduled_email_gr.getValue('active');
 
@@ -132,12 +132,12 @@ App_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         }
 
         // Query and create variables storing system property values
-		
-		// Logging type
+
+        // Logging type
         if (system_properties_gr.get('c5061d1e078e20103af7f2ae7c1ed0ec'))
             logging_type = system_properties_gr.getValue('value');
 
-		// Truncate logs value
+        // Truncate logs value
         if (system_properties_gr.get('4f86d15e078e20103af7f2ae7c1ed0e0'))
             truncate_logs_value = system_properties_gr.getValue('value');
 
@@ -181,7 +181,7 @@ App_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 
         // Using GlideRecord Objects retrieve files
         // set active states of files using variables declared above
-		
+
         // **** When data retrieved from client == false, data is seen as null.
         // **** Adding if statements based on the data's value to define active state
         // Get contract
@@ -265,7 +265,8 @@ App_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 
         // Glide Records
         var api_key_gr = new GlideRecord('x_500374_dell_warr_api_key');
-		var oauth_gr = new GlideRecord('oauth_entity');
+        var oauth_gr = new GlideRecord('oauth_entity');
+
         // Data to return to client
         var api_key_added = false;
 
@@ -282,38 +283,33 @@ App_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
             gs.addErrorMessage('Please input a Client Secret before submitting.');
         } else { // Test API Key
 
-            var rest_v2 = new sn_ws.RESTMessageV2();
-            rest_v2.setHttpMethod('get');
-            rest_v2.setEndpoint(bearer_token_endpoint);
-            rest_v2.setQueryParameter('vendor', 'Dell');
-            rest_v2.setQueryParameter('serialnumbers', 'testing_api_key'); // Setting dummy serial number to test apiKey
-            rest_v2.setRequestHeader('clientid', client_id);
-            rest_v2.setRequestHeader('clientsecret', client_secret);
-
-            response = rest_v2.execute();
-            var httpResponseStatus = response.getStatusCode();
-
-            if (httpResponseStatus == 401) { // Error message was recieved
-                gs.addErrorMessage('Your Client ID or Client Secret is invalid according to Dell. Please double check you have the correct keys.');
-            } else {
-                // Add api_credentials
-                api_key_gr.initialize();
-                api_key_gr.client_id = client_id;
-                api_key_gr.client_secret = client_secret;
-                api_key_gr.insert();
-
-                api_key_added = true;
-
-                // Add client id and client secret to oauth authentication profile
-                if (oauth_gr.get('d278aa8e07c620103af7f2ae7c1ed09f')) {
-                    oauth_gr.client_id = client_id;
-                    oauth_gr.client_secret = client_secret;
-                    oauth_gr.update();
-                }
-
-                gs.addInfoMessage('Your Client ID and Client Secret were sucessfully added.');
-
+            // Add client id and client secret to oauth authentication profile
+            if (oauth_gr.get('d278aa8e07c620103af7f2ae7c1ed09f')) {
+                oauth_gr.client_id = client_id;
+                oauth_gr.client_secret = client_secret;
+                oauth_gr.update();
             }
+
+			// Testing the Client ID and Client Secret
+			// If they are invalid ServiceNow will throw an error
+            try {
+                var rest_v2 = new sn_ws.RESTMessageV2('x_500374_dell_warr.dell_json_retrieval', 'get_json');
+                rest_v2.setStringParameterNoEscape('serial_number', 'dummy_serial_num');
+				response = rest_v2.execute();
+            } catch (error) {
+                gs.addErrorMessage('Your Client ID or Client Secret is invalid according to Dell. Please double check you have the correct keys.');
+                return api_key_added;
+            }
+
+            // Add api_credentials
+            api_key_gr.initialize();
+            api_key_gr.client_id = client_id;
+            api_key_gr.client_secret = client_secret;
+            api_key_gr.insert();
+
+            api_key_added = true;
+
+            gs.addInfoMessage('Your Client ID and Client Secret were sucessfully added.');
 
             return api_key_added;
         }
@@ -334,7 +330,7 @@ App_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         if (api_key_gr.next()) { // Data was successfully retrieved
             api_creds_retrieved = true;
         }
-		
+
         return api_creds_retrieved;
 
     },
@@ -345,13 +341,13 @@ App_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 06:44:03</sys_created_on>
         <sys_id>63e62a4e07c620103af7f2ae7c1ed021</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>App_Utils</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_script_include_63e62a4e07c620103af7f2ae7c1ed021</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-02 19:44:15</sys_updated_on>
+        <sys_updated_on>2021-02-02 20:14:05</sys_updated_on>
     </sys_script_include>
 </record_update>
