@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-02 23:19:31</sys_created_on>
+        <sys_id>0cdac292074260103af7f2ae7c1ed02e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>.x_500374_dell_warr.import_admin</sys_name>
+        <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
+        <sys_security_acl display_value="x_500374_dell_warr_advanced_settings_modal">6bca4292074260103af7f2ae7c1ed0bc</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_0cdac292074260103af7f2ae7c1ed02e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-02 23:19:31</sys_updated_on>
+        <sys_user_role display_value="x_500374_dell_warr.import_admin" name="x_500374_dell_warr.import_admin">fee99ec207c620103af7f2ae7c1ed0bf</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>
