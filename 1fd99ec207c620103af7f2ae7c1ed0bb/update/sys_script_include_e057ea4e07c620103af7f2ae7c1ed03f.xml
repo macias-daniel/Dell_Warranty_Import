@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_500374_dell_warr.Scheduled_Job_Utils</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>Function to manipulate Scheduled Script Executions</description>
+        <name>Scheduled_Job_Utils</name>
+        <script><![CDATA[var Scheduled_Job_Utils = Class.create();
+Scheduled_Job_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    // Get get all contracts settting and return them to caller 
+    get_get_all_contracts_schedule: function() {
+        // Create reference to appUtils
+        var app_utils = new App_Utils;
+
+        app_utils.function_log('Scheduled_Job_Utils', 'get_get_all_contracts_schedule');
+
+        // Grab schedule
+        var scheduled_job_gr = new GlideRecord('sysauto_script');
+        if (scheduled_job_gr.get('64f5cd0507e120103af7f2ae7c1ed09d')) { // Query get all contracts schedule
+
+            // Define variables from schedule
+            var type = scheduled_job_gr.getValue('run_type');
+            var time = scheduled_job_gr.getValue('run_time');
+            var active = scheduled_job_gr.getValue('active');
+            var day = 0;
+
+            if (type == 'weekly') {
+                day = scheduled_job_gr.getValue('run_dayofweek');
+            } else if (type == 'monthly') {
+                day = scheduled_job_gr.getValue('run_dayofmonth');
+            }
+
+            var time_format = gs.getProperty('glide.sys.time_format');
+            var standard_time = false;
+            var am_pm = false;
+            var time_array;
+            var hours;
+            var minutes;
+            var seconds;
+            var time_parsed;
+
+            var gdt = new GlideDateTime();
+            gdt.setValue(time);
+            var local_gdt = gdt.getDisplayValue();
+
+            // Grab session time zone
+            var session_time_zone = gs.getSession().getTimeZoneName();
+
+            // Determine time format to set correct time
+            if (time_format == 'hh:mm:ss a') {
+                time_parsed = local_gdt.split(" ");
+                time_array = time_parsed[1].split(':');
+                hours = time_array[0].trim();
+                minutes = time_array[1].trim();
+                seconds = time_array[2].trim();
+                standard_time = true;
+                am_pm = time_parsed[2];
+            } else if (time_format == 'hh.mm.ss a') {
+                standard_time = true;
+                time_parsed = local_gdt.split(" ");
+                time_array = time_parsed[1].split('.');
+                hours = time_array[0].trim();
+                minutes = time_array[1].trim();
+                seconds = time_array[2].trim();
+                standard_time = true;
+                am_pm = time_parsed[2];
+            } else if (time_format == 'HH:mm:ss') {
+                time_parsed = local_gdt.split(" ").pop();
+                time_array = time_parsed.split(':');
+                hours = time_array[0].trim();
+                minutes = time_array[1].trim();
+                seconds = time_array[2].trim();
+            } else if (time_format == 'HH.mm.ss') {
+                time_parsed = local_gdt.split(" ").pop();
+                time_array = time_parsed.split('.');
+                hours = time_array[0].trim();
+                minutes = time_array[1].trim();
+                seconds = time_array[2].trim();
+            }
+
+            // Define object of data from schedule
+            var data = {
+                type: type,
+                time: time,
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds,
+                day: day,
+                session_time_zone: session_time_zone,
+                standard_time: standard_time,
+                am_pm: am_pm,
+                active: active,
+                time_format: time_format
+            };
+
+            if (scheduled_job_gr.get('7958f45e07e960103af7f2ae7c1ed070')) {
+                scheduled_job_gr.query();
+
+                while (scheduled_job_gr.next()) {
+                    gs.executeNow(scheduled_job_gr);
+                }
+            }
+
+            // Return object as string
+            return JSON.stringify(data);
+        }
+    },
+	
+	// Update get all contract schedule using value given by user
+	update_get_all_contract_schedule: function(){
+		var app_utils = new App_Utils;
+		
+        // Define variables
+        var frequency = this.getParameter("sysparm_run_type");
+        var hour = this.getParameter("sysparm_hour");
+        var minute = this.getParameter("sysparm_minute");
+        var second = this.getParameter("sysparm_second");
+        var am_pm = this.getParameter("sysparm_am_pm");
+        var run_day = this.getParameter("sysparm_run_day");
+        var active = this.getParameter("sysparm_active");
+        var time_format = gs.getProperty('glide.sys.time_format');
+        var run_time;
+
+		
+		app_utils.function_log('Scheduled_Job_Utils', 'update_get_all_contracts_schedule');
+		
+        if (frequency == 'default') {  // If frequnecy hasn't been specified error out
+            gs.addErrorMessage('Please specify a "Frequency" in your contract schedule before saving.');
+            return;
+        } else if ((run_day) && run_day == 'default') {  // If run day hasn't been specified by user error out
+            gs.addErrorMessage('Please specifiy a "Day" in your contract schedule before saving.');
+            return;
+        } else if (time_format == 'hh:mm:ss a' || time_format == 'hh.mm.ss a') {  // If time format is standard, ensure time is correct or error out
+            if ((hour < 0 || hour > 12 || hour == '') || (minute < 0 || minute > 60 || minute == '') || (second < 0 || second > 60 || second == '')) {
+                gs.addErrorMessage('Please specifiy a correct "Time" in your contract schedule before saving.');
+                return;
+            }
+        } else if (time_format == 'HH:mm:ss' || time_format == 'HH.mm.ss') { // If time format is 24 hour, ensure time is correct or error out	
+            if ((hour < 0 || hour > 24 || hour == '') || (minute < 0 || minute > 60 || minute == '') || (second < 0 || second > 60 || second == '')) {
+                gs.addErrorMessage('Please specifiy a correct "Time" in your contract schedule before saving.');
+                return;
+            }
+        }
+
+        // Define run_time
+        if (time_format == 'hh:mm:ss a') {
+            run_time = hour + ":" + minute + ":" + second + " " + am_pm;
+        } else if (time_format == 'hh.mm.ss a') {
+            run_time = hour + "." + minute + "." + second + " " + am_pm;
+        } else if (time_format == 'HH:mm:ss') {
+            run_time = hour + ":" + minute + ":" + second;
+        } else if (time_format == 'HH.mm.ss') {
+            run_time = hour + "." + minute + "." + second;
+        }
+
+        // Create new GT object, set Display Value (session time zone) for object
+        var gt = new GlideTime();
+        gt.setDisplayValue(run_time);
+
+        // Define new RunTime from GT object, retrieving Get Value (UTC Value of object)
+        var run_timeUTC = gt.getValue();
+
+        // Determine frequency of schedule, weekly or monthly
+        var run_dayOrWeek;
+        switch (frequency) {
+            case 'weekly':
+                run_dayOrWeek = 'run_dayofweek';
+                break;
+            case 'monthly':
+                run_dayOrWeek = 'run_dayofmonth';
+                break;
+        }
+
+        // Grab schedule
+        var scheduled_job_gr = new GlideRecord('sysauto_script');
+        if (scheduled_job_gr.get('64f5cd0507e120103af7f2ae7c1ed09d')) {
+            if (frequency == 'weekly' || frequency == 'monthly') {
+                scheduled_job_gr.setValue(run_dayOrWeek, run_day);
+            }
+            scheduled_job_gr.setValue('run_time', run_timeUTC);
+            scheduled_job_gr.setValue('run_type', frequency);
+            scheduled_job_gr.setValue('active', active);
+
+            // Update schedule
+            scheduled_job_gr.update();
+
+            // Let the user know the schedule has been updated
+            gs.addInfoMessage("Your contract schedule has been saved.");
+        }
+
+        return;
+	},
+	
+	// executing scheduled get all contracts immediatly via Scheduled script execution to run on a seperate thread
+    get_all_contracts_now: function() { 
+        // Create reference to appUtils
+        var app_utils = new App_Utils;
+
+        app_utils.function_log('Scheduled_Job_Utils', 'get_all_contracts_now');
+
+        // Grab GR from sript table
+        var scheduled_job_gr = new GlideRecord('sysauto_script');
+
+        if (scheduled_job_gr.get('64f5cd0507e120103af7f2ae7c1ed09d')) {
+            scheduled_job_gr.query();
+
+            while (scheduled_job_gr.next()) {
+                gs.executeNow(scheduled_job_gr);
+            }
+        }
+
+        return;
+    },
+	
+	// Refresh time zone of chosen scheduled job script
+    refresh_schedule_time_zone: function(scheduled_job_table, scheduled_job_sys_id, minute) {
+
+        var schedule_table_gr = new GlideRecord(scheduled_job_table);
+        if (schedule_table_gr.get(scheduled_job_sys_id)) {
+            // Create new GT object, set Display Value (session time zone) for object
+            var gt = new GlideTime();
+
+            // Grab time format for SN instance
+            var time_format = gs.getProperty('glide.sys.time_format');
+
+            // Define run_time in appropriate format
+            if (time_format == 'hh:mm:ss a') {
+                gt.setDisplayValue('00:' + minute + ':00 AM');
+            } else if (time_format == 'hh.mm.ss a') {
+                gt.setDisplayValue('00.' + minute + '.00 AM');
+            } else if (time_format == 'HH:mm:ss') {
+                gt.setDisplayValue('00:' + minute + ':00');
+            } else if (time_format == 'HH.mm.ss') {
+                gt.setDisplayValue('00.' + minute + '.00');
+            }
+
+            // Define new RunTime from GT object, retrieving Get Value (UTC Value of object)
+            var run_time = gt.getValue();
+
+            // Set scheduled job value
+            schedule_table_gr.setValue('run_time', run_time);
+
+            // Update schedule
+            schedule_table_gr.update();
+
+            return true;
+        }
+		
+    },
+
+    type: 'Scheduled_Job_Utils'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-02 06:45:36</sys_created_on>
+        <sys_id>e057ea4e07c620103af7f2ae7c1ed03f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Scheduled_Job_Utils</sys_name>
+        <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
+        <sys_update_name>sys_script_include_e057ea4e07c620103af7f2ae7c1ed03f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-02 06:45:36</sys_updated_on>
+    </sys_script_include>
+</record_update>

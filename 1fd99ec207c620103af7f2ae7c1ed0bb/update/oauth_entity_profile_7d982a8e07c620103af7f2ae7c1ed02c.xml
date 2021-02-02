@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity_profile">
+    <oauth_entity_profile action="INSERT_OR_UPDATE">
+        <default>true</default>
+        <grant_type>client_credentials</grant_type>
+        <jwt_provider/>
+        <name>Dell Bearer Request default_profile</name>
+        <oauth_entity display_value="Dell Bearer Request">d278aa8e07c620103af7f2ae7c1ed09f</oauth_entity>
+        <sys_class_name>oauth_entity_profile</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-02 06:50:46</sys_created_on>
+        <sys_id>7d982a8e07c620103af7f2ae7c1ed02c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Dell Bearer Request default_profile</sys_name>
+        <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
+        <sys_update_name>oauth_entity_profile_7d982a8e07c620103af7f2ae7c1ed02c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-02 06:50:46</sys_updated_on>
+    </oauth_entity_profile>
+</record_update>

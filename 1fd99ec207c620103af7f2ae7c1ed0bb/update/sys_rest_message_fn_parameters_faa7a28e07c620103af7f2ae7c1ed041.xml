@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters">
+    <sys_rest_message_fn_parameters action="INSERT_OR_UPDATE">
+        <name>serial_number</name>
+        <rest_message_function display_value="get_json">4a87228e07c620103af7f2ae7c1ed018</rest_message_function>
+        <sys_class_name>sys_rest_message_fn_parameters</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-02 06:46:45</sys_created_on>
+        <sys_id>faa7a28e07c620103af7f2ae7c1ed041</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>serial_number</sys_name>
+        <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
+        <sys_update_name>sys_rest_message_fn_parameters_faa7a28e07c620103af7f2ae7c1ed041</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-02 06:46:54</sys_updated_on>
+        <type>string</type>
+        <value>4VY8QT2</value>
+    </sys_rest_message_fn_parameters>
+</record_update>
