@@ -42,8 +42,6 @@ API_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 			response_body = JSON.parse(response.getBody());
 			status_code = response.getStatusCode();
 			
-			gs.info(response.getBody());
-			
 			if(response_body.errorStatus) {// If an error occured log it
 				app_utils.create_log('Error that occured: ' + response_body.errorStatusText, 'Error'); 
 				return false;
@@ -74,13 +72,13 @@ API_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 06:43:18</sys_created_on>
         <sys_id>b3c6e64e07c620103af7f2ae7c1ed019</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>API_Utils</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_script_include_b3c6e64e07c620103af7f2ae7c1ed019</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-02 20:30:27</sys_updated_on>
+        <sys_updated_on>2021-02-04 00:46:47</sys_updated_on>
     </sys_script_include>
 </record_update>
