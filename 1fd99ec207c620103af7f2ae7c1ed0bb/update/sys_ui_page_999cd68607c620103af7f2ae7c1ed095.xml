@@ -123,6 +123,7 @@ jQuery('#submit-api-creds').click(function() {
 function store_api_key_response(response) {
 	
     var success = response.responseXML.documentElement.getAttribute('answer');
+	success = JSON.parse(success);
 
     if (success) { // On success, clear fields
         jQuery('#client-id').val('');
@@ -761,13 +762,13 @@ jQuery("#active-checkbox-contract").click(function() {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 05:58:35</sys_created_on>
         <sys_id>999cd68607c620103af7f2ae7c1ed095</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>settings</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy/>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_ui_page_999cd68607c620103af7f2ae7c1ed095</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-02 23:02:42</sys_updated_on>
+        <sys_updated_on>2021-02-05 05:34:33</sys_updated_on>
     </sys_ui_page>
 </record_update>
