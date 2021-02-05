@@ -173,6 +173,10 @@ jQuery("#expiring-contracts-notification").click(function() {
 	.no-margin-top{
 		margin-top: 0px;
 	}
+	
+	.no-margin-bottom{
+		margin-bottom: 0px;
+	}
 
 	#logging-type{
 		height: 30px;
@@ -252,16 +256,8 @@ jQuery("#expiring-contracts-notification").click(function() {
 		</div>
 	</div>
 
-	<hr class = "no-margin-top"/>
+	<hr class = "no-margin-top no-margin-bottom"/>
 	
-	<!-- Expiring Contracts Notification Contacts  -->
-	<div class = "row mt-2 mb-2">
-		<div class = "col ml-4">
-			<label for="notification-contacts" class = "advanced-settings-label">Notification Contacts (separated with commas):</label>
-			<input id="notification-contacts" class = "form-control" type="text" placeholder = 'info@company.com'></input>
-		</div>
-	</div>
-
 	<!-- Scheduled Job - Expiring Contracts Notification -->
 	<div class= "row">
 		<div class = "col">
@@ -275,10 +271,19 @@ jQuery("#expiring-contracts-notification").click(function() {
 		</div>
 	</div>
 
-	<hr class = "no-margin-top"/>
+	<!-- Expiring Contracts Notification Contacts  -->
+	<div class = "row mt-2 mb-2">
+		<div class = "col ml-4">
+			<label for="notification-contacts" class = "advanced-settings-label">Notification Contacts (separated with commas):</label>
+			<input id="notification-contacts" class = "form-control" type="text" placeholder = 'info@company.com'></input>
+		</div>
+	</div>
+
+
+	<hr/>
 	
 	<!--Logs dropdown -->
-	<div class="row form-group log-type mt-3">
+	<div class="row form-group log-type mt-3 mb-3">
 		<div class = "col">
 			<label for="logging-type" class = "advanced-settings-label">Log Level</label>
 			<select class="form-control form-control-lg" id="logging-type">
@@ -321,13 +326,13 @@ jQuery("#expiring-contracts-notification").click(function() {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 05:56:55</sys_created_on>
         <sys_id>292c568607c620103af7f2ae7c1ed073</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>advanced_settings_modal</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy/>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_ui_page_292c568607c620103af7f2ae7c1ed073</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-05 05:55:56</sys_updated_on>
+        <sys_updated_on>2021-02-05 06:17:47</sys_updated_on>
     </sys_ui_page>
 </record_update>
