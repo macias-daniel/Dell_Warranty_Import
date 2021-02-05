@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="DELETE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description>Default access to oauth_entity record, (allowing the deletion of api_keys)</description>
+        <name>oauth_entity</name>
+        <operation display_value="delete">delete</operation>
+        <script/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-05 19:44:01</sys_created_on>
+        <sys_id>49167cdf07ca20103af7f2ae7c1ed016</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>oauth_entity</sys_name>
+        <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
+        <sys_update_name>sys_security_acl_49167cdf07ca20103af7f2ae7c1ed016</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-05 19:53:53</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</application>
+        <file_path/>
+        <instance_id>c93a1f4ddb1f9f004f035d00cf9619fb</instance_id>
+        <instance_name>dev64536</instance_name>
+        <name>sys_security_acl_49167cdf07ca20103af7f2ae7c1ed016</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><condition/><description>Default access to oauth_entity record, (allowing the deletion of api_keys)</description><name>oauth_entity</name><operation display_value="delete">delete</operation><script/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-02-05 19:44:01</sys_created_on><sys_id>49167cdf07ca20103af7f2ae7c1ed016</sys_id><sys_mod_count>1</sys_mod_count><sys_name>oauth_entity</sys_name><sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package><sys_policy/><sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope><sys_update_name>sys_security_acl_49167cdf07ca20103af7f2ae7c1ed016</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-02-05 19:53:53</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+        <payload_hash>587721681</payload_hash>
+        <record_name>oauth_entity</record_name>
+        <reverted_from/>
+        <source>5fd99ec207c620103af7f2ae7c1ed0bd</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-05 19:53:53</sys_created_on>
+        <sys_id>aa987053070e20103af7f2ae7c1ed000</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17773c20dec0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-05 19:53:53</sys_updated_on>
+        <type>Access Control</type>
+        <update_guid>e29870530b0e20102bee54fca983be00</update_guid>
+        <update_guid_history>e29870530b0e20102bee54fca983be00:587721681,0a56fcdf32ca20107d91d42208618bc2:467662267</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-05 20:11:07</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl">sys_security_acl</sys_db_object>
+        <sys_id>2c582640e6b34bd1b116cf003eab2f49</sys_id>
+        <sys_metadata>49167cdf07ca20103af7f2ae7c1ed016</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>oauth_entity</sys_name>
+        <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
+        <sys_parent display_value="oauth_entity">fad07f44c923101091f9f06464832728</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
+        <sys_scope_delete display_value="">9944abc605bd48009d408f9c4a5e8400</sys_scope_delete>
+        <sys_update_name>sys_security_acl_49167cdf07ca20103af7f2ae7c1ed016</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_49167cdf07ca20103af7f2ae7c1ed016">aa987053070e20103af7f2ae7c1ed000</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-05 20:11:07</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
