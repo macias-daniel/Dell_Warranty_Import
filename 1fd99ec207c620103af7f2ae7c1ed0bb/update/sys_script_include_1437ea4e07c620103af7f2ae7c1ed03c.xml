@@ -60,13 +60,6 @@ Contract_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
             }
         }
 
-        api_credentials = app_utils.get_api_key(); // Check if there are api credentials stored
-        if (!api_credentials) { // If api credentials were not retrieved
-			gs.addErrorMessage('It looks like you have not yet added your Dell API Credentials. Please head over to ' + gs.getProperty('x_500374_dell_warr.settings_page_url') +' to input your Key.');
-            app_utils.create_log('It looks like you have not yet added your Dell API Credentials. Please head over to Dell Warranty Import Settings to input your Credentials.', 'Error');
-            return;
-        }
-
         ////////////////////////////////////////// Main Life Cycle //////////////////////////////////////////
 
         raw_json = new API_Utils().get_contract_json(serial_num); // Get asset's contract and store in raw_json variable
@@ -171,13 +164,13 @@ Contract_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 06:45:01</sys_created_on>
         <sys_id>1437ea4e07c620103af7f2ae7c1ed03c</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Contract_Utils</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_script_include_1437ea4e07c620103af7f2ae7c1ed03c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-05 06:09:52</sys_updated_on>
+        <sys_updated_on>2021-02-05 23:33:44</sys_updated_on>
     </sys_script_include>
 </record_update>

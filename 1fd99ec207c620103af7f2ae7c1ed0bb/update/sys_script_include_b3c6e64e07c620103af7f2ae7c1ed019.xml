@@ -14,61 +14,66 @@ API_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
     get_contract_json: function(serial_num) {
 
         var app_utils = new App_Utils;
-		
-		var response;
+
+        var response;
         var response_body;
-		var status_code;
-		var contract_json;
-		var error_message;
-		
-		var cleaned_up_serial_num = serial_num.split('-').join('');
-		
-		// Contitional variables
-		var no_valid_id;
-		var no_valid_entitlements;
-		var no_valid_ship_date;
+        var status_code;
+        var contract_json;
+        var error_message;
+
+        var cleaned_up_serial_num = serial_num.split('-').join('');
+
+        // Contitional variables
+        var no_valid_id;
+        var no_valid_entitlements;
+        var no_valid_ship_date;
+
+        var api_credentials;
 
         app_utils.function_log('API_Utils', 'get_contract_json');
-		app_utils.create_log('Started processing contract(s) for asset with serial number: ' + serial_num + ' from Dell.');
+        app_utils.create_log('Started processing contract(s) for asset with serial number: ' + serial_num + ' from Dell.');
 
-		
+
         try {
-			
-			var rest_v2 = new sn_ws.RESTMessageV2('x_500374_dell_warr.dell_json_retrieval', 'get_json');
+
+            var rest_v2 = new sn_ws.RESTMessageV2('x_500374_dell_warr.dell_json_retrieval', 'get_json');
             rest_v2.setStringParameterNoEscape('serial_number', cleaned_up_serial_num);
-            
-			response = rest_v2.executeAsync();
-			
-			response_body = JSON.parse(response.getBody());
-			status_code = response.getStatusCode();
-			
-			if(response_body.errorStatus) {// If an error occured log it
-				app_utils.create_log('Error that occured: ' + response_body.errorStatusText, 'Error'); 
-				return false;
-			}
-			
-			// Setting conditional values here
-			no_valid_id = response_body[0].id == null; 
-			no_valid_entitlements = response_body[0].entitlements.length < 0;
-			no_valid_ship_date = response_body[0].shipDate == null;
-			
-			// Check to see if invalid JSON was retrieved
-			if(no_valid_id|| no_valid_entitlements || no_valid_ship_date){
-				app_utils.create_log('Serial number retrieved invalid Dell contract.');
-				return false;
-			}
-			
-			return {contract_json: response_body, status_code: status_code};
-			
+
+            response = rest_v2.executeAsync();
+
+            response_body = JSON.parse(response.getBody());
+            status_code = response.getStatusCode();
+
+            if (response_body.errorStatus) { // If an error occured log it
+                app_utils.create_log('Error that occured: ' + response_body.errorStatusText, 'Error');
+                return false;
+            }
+
+            // Setting conditional values here
+            no_valid_id = response_body[0].id == null;
+            no_valid_entitlements = response_body[0].entitlements.length < 0;
+            no_valid_ship_date = response_body[0].shipDate == null;
+
+            // Check to see if invalid JSON was retrieved
+            if (no_valid_id || no_valid_entitlements || no_valid_ship_date) {
+                app_utils.create_log('Serial number '+ serial_num +' retrieved invalid Dell contract.', 'Error');
+                return false;
+            }
+
+            return {
+                contract_json: response_body,
+                status_code: status_code
+            };
+
         } catch (error) {
             error_message = error.message;
-			if(error_message.contains('User Not Authenticated.')){
-				app_utils.create_log('You appear to be using invalid API Credentials. Please double check your API Credentials then try again.', 'Error');
-			} else {
-				app_utils.create_log('ServiceNow Error: ' + error_message + '.', 'Error'); 
-			}
-			return false;
-		}
+            if (error_message.contains('User Not Authenticated.')) {
+                app_utils.create_log('Either your have not added your Dell API Credentials or are using invalid API Credentials. Please head over to ' + gs.getProperty('x_500374_dell_warr.settings_page_url') + ' to check on or add your API Credentials then try again.', 'Error');
+            } else {
+                app_utils.create_log('ServiceNow Error: ' + error_message + '.', 'Error');
+            }
+            return false;
+        }
     },
 
     type: 'API_Utils'
@@ -77,13 +82,13 @@ API_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 06:43:18</sys_created_on>
         <sys_id>b3c6e64e07c620103af7f2ae7c1ed019</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>19</sys_mod_count>
         <sys_name>API_Utils</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_script_include_b3c6e64e07c620103af7f2ae7c1ed019</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-05 18:26:34</sys_updated_on>
+        <sys_updated_on>2021-02-05 23:46:59</sys_updated_on>
     </sys_script_include>
 </record_update>
