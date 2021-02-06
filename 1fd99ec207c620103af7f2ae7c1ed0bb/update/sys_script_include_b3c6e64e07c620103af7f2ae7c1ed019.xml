@@ -46,7 +46,7 @@ API_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 
             if (response_body.errorStatus) { // If an error occured log it
                 app_utils.create_log('Error that occured: ' + response_body.errorStatusText, 'Error');
-                return false;
+                return {contract_json: false};
             }
 
             // Setting conditional values here
@@ -56,8 +56,8 @@ API_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 
             // Check to see if invalid JSON was retrieved
             if (no_valid_id || no_valid_entitlements || no_valid_ship_date) {
-                app_utils.create_log('Serial number '+ serial_num +' retrieved invalid Dell contract.', 'Error');
-                return false;
+                app_utils.create_log('Serial number ' + serial_num + ' retrieved invalid Dell contract.', 'Error');
+                return {contract_json: false};
             }
 
             return {
@@ -67,12 +67,15 @@ API_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 
         } catch (error) {
             error_message = error.message;
+			// Check if the user is not authenticated or if the error is a servicenow error
             if (error_message.contains('User Not Authenticated.')) {
-                app_utils.create_log('Either your have not added your Dell API Credentials or are using invalid API Credentials. Please head over to ' + gs.getProperty('x_500374_dell_warr.settings_page_url') + ' to check on or add your API Credentials then try again.', 'Error');
+                gs.addErrorMessage('Either your have not added your Dell API Credentials or are using invalid API Credentials. Please head over to ' + gs.getProperty('x_500374_dell_warr.settings_page_url') + ' to check on or add your API Credentials then try again.');
+                app_utils.create_log('Either your have not added your Dell API Credentials or are using invalid API Credentials. Please head over to Dell Warranty Import Settings to check on or add your API Credentials then try again.', 'Error');
+				return false;
             } else {
                 app_utils.create_log('ServiceNow Error: ' + error_message + '.', 'Error');
-            }
-            return false;
+				return false;
+			}
         }
     },
 
@@ -82,13 +85,13 @@ API_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 06:43:18</sys_created_on>
         <sys_id>b3c6e64e07c620103af7f2ae7c1ed019</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>23</sys_mod_count>
         <sys_name>API_Utils</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_script_include_b3c6e64e07c620103af7f2ae7c1ed019</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-05 23:46:59</sys_updated_on>
+        <sys_updated_on>2021-02-06 00:01:56</sys_updated_on>
     </sys_script_include>
 </record_update>

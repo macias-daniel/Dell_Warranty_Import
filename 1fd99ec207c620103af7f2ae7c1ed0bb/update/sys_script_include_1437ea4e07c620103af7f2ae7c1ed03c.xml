@@ -75,10 +75,12 @@ Contract_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 
             success = true;
             error = false;
-        } else {
+        } else if(raw_json.contract_json == false){
             app_utils.create_log('Could not retrieve contract(s) for asset with serial number: ' + serial_num + ' from Dell.', 'Error');
             gs.addErrorMessage('Could not retrieve contract(s) for asset with serial number: ' + serial_num + ' from Dell.');
-        }
+        } else {
+			return;
+		}
 
         return JSON.stringify({
             success: success,
@@ -146,12 +148,14 @@ Contract_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
                 contract_processing_utils.assign_contract_to_asset(created_contract, asset_sys_id);
 
                 successes++;
-            } else {
+            } else if (raw_json.contract_json == false){
                 app_utils.create_log('Could not retrieve contract(s) for asset with serial number: ' + serial_num + ' from Dell.', 'Error');
                 gs.addErrorMessage('Could not retrieve contract(s) for asset with serial number: ' + serial_num + ' from Dell.');
 
                 errors++;
-            }
+            } else {
+				return;
+			}
         }
 
         app_utils.create_log('Succeeded in retrieving ' + successes + ' contracts. Errors occured when trying to retrieve ' + errors + ' contracts.');
@@ -164,13 +168,13 @@ Contract_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 06:45:01</sys_created_on>
         <sys_id>1437ea4e07c620103af7f2ae7c1ed03c</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Contract_Utils</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_script_include_1437ea4e07c620103af7f2ae7c1ed03c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-05 23:33:44</sys_updated_on>
+        <sys_updated_on>2021-02-06 00:03:28</sys_updated_on>
     </sys_script_include>
 </record_update>
