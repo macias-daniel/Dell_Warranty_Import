@@ -5,7 +5,7 @@
         <action_delete>false</action_delete>
         <action_insert>false</action_insert>
         <action_query>false</action_query>
-        <action_update>false</action_update>
+        <action_update>true</action_update>
         <active>false</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
@@ -15,7 +15,13 @@
         <condition/>
         <description/>
         <execute_function>false</execute_function>
-        <filter_condition/>
+        <filter_condition table="alm_hardware">serial_numberISNOTEMPTY^modelLIKEDell^ORmodelLIKEdell^model_category=81feb9c137101000deeabfc8bcbe5dc4^serial_numberVALCHANGES^EQ<item endquery="false" field="serial_number" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
+            <item endquery="false" field="model" goto="false" newquery="false" operator="LIKE" or="false" value="Dell"/>
+            <item endquery="false" field="model" goto="false" newquery="false" operator="LIKE" or="true" value="dell"/>
+            <item display_table="cmdb_model_category" display_value="Computer" endquery="false" field="model_category" goto="false" newquery="false" operator="=" or="false" value="81feb9c137101000deeabfc8bcbe5dc4"/>
+            <item endquery="false" field="serial_number" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
         <is_rest>false</is_rest>
         <message/>
         <name>Get Contract on Asset Update</name>
@@ -46,7 +52,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>dd975d5e078e20103af7f2ae7c1ed029</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Get Contract on Asset Update</sys_name>
         <sys_overrides/>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
@@ -54,7 +60,7 @@
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_script_dd975d5e078e20103af7f2ae7c1ed029</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-09 02:52:59</sys_updated_on>
+        <sys_updated_on>2021-02-09 03:26:44</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>
