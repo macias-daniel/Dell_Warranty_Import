@@ -296,7 +296,7 @@ App_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 				if (current_gdt.before(bearer_token_expiration)) {
                     formated_expiration = bearer_token_expiration.getLocalTime().getByFormat('hh:mm:ss');
 					
-                    gs.addErrorMessage('You currently have an active Dell Access Token! Either delete active token in the <a href = "./oauth_credential_list.do">OAuth Credentials table</a>, or wait untill your token expires at ' + formated_expiration + ' to add your new API Credentials.');
+                    gs.addErrorMessage('You currently have an active Dell Access Token! Either delete active token in the <a href = "./oauth_credential_list.do">OAuth Credentials table</a> (' + 'Requires Admin Role' + '), or wait untill your token expires at ' + formated_expiration + ' to add your new API Credentials.');
                     return api_key_added;
                 }
             }
@@ -360,13 +360,13 @@ App_Utils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 06:44:03</sys_created_on>
         <sys_id>63e62a4e07c620103af7f2ae7c1ed021</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>38</sys_mod_count>
         <sys_name>App_Utils</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_script_include_63e62a4e07c620103af7f2ae7c1ed021</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-05 23:13:56</sys_updated_on>
+        <sys_updated_on>2021-02-11 21:28:32</sys_updated_on>
     </sys_script_include>
 </record_update>
