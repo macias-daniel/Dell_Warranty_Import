@@ -7,21 +7,21 @@
         <basic_auth_user/>
         <description>HTTP Method for retrieving contract JSON</description>
         <name>dell_json_retrieval</name>
-        <oauth2_profile display_value="Dell Warranty Import Bearer Token default_profile">d9da7c93070e20103af7f2ae7c1ed0f4</oauth2_profile>
+        <oauth2_profile display_value="Dell Warranty Import Bearer Token default_profile">5ebca705071220103af7f2ae7c1ed07f</oauth2_profile>
         <protocol_name/>
         <rest_endpoint>https://apigtwb2c.us.dell.com/auth/oauth/v2/token</rest_endpoint>
         <sys_class_name>sys_rest_message</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-02 06:46:09</sys_created_on>
         <sys_id>9b67ae4e07c620103af7f2ae7c1ed09f</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>dell_json_retrieval</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy/>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_rest_message_9b67ae4e07c620103af7f2ae7c1ed09f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-05 20:06:59</sys_updated_on>
+        <sys_updated_on>2021-02-11 19:31:48</sys_updated_on>
         <use_basic_auth>false</use_basic_auth>
         <use_mutual_auth>false</use_mutual_auth>
     </sys_rest_message>

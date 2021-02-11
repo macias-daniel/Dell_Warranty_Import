@@ -7,15 +7,15 @@
         <oauth_entity display_value="Dell Warranty Import Bearer Token">f3aa70d3070e20103af7f2ae7c1ed069</oauth_entity>
         <sys_class_name>oauth_entity_profile</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2021-02-05 20:03:38</sys_created_on>
-        <sys_id>d9da7c93070e20103af7f2ae7c1ed0f4</sys_id>
+        <sys_created_on>2021-02-11 19:30:38</sys_created_on>
+        <sys_id>5ebca705071220103af7f2ae7c1ed07f</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>Dell Warranty Import Bearer Token default_profile</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy/>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
-        <sys_update_name>oauth_entity_profile_d9da7c93070e20103af7f2ae7c1ed0f4</sys_update_name>
+        <sys_update_name>oauth_entity_profile_5ebca705071220103af7f2ae7c1ed07f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-05 23:15:56</sys_updated_on>
+        <sys_updated_on>2021-02-11 19:31:10</sys_updated_on>
     </oauth_entity_profile>
 </record_update>
