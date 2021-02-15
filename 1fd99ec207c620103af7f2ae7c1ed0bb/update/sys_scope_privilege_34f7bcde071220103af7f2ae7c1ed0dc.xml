@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
     <sys_scope_privilege action="INSERT_OR_UPDATE">
-        <operation>write</operation>
+        <operation>read</operation>
         <source_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</source_scope>
         <status>allowed</status>
         <sys_class_name>sys_scope_privilege</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2021-02-09 03:28:12</sys_created_on>
-        <sys_id>e45df1d4075620103af7f2ae7c1ed0b9</sys_id>
+        <sys_created_on>2021-02-15 03:32:59</sys_created_on>
+        <sys_id>34f7bcde071220103af7f2ae7c1ed0dc</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>sys_script</sys_name>
+        <sys_name>sys_ui_action</sys_name>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
         <sys_policy/>
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
-        <sys_update_name>sys_scope_privilege_e45df1d4075620103af7f2ae7c1ed0b9</sys_update_name>
+        <sys_update_name>sys_scope_privilege_34f7bcde071220103af7f2ae7c1ed0dc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-09 03:28:12</sys_updated_on>
-        <target_name>sys_script</target_name>
+        <sys_updated_on>2021-02-15 03:32:59</sys_updated_on>
+        <target_name>sys_ui_action</target_name>
         <target_scope display_value="Global">global</target_scope>
         <target_type>sys_db_object</target_type>
     </sys_scope_privilege>
