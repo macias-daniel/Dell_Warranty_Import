@@ -59,7 +59,7 @@ function get_contract_response(response) {
     if (workflow.success) {
         setInterval(function() { // Interval set for form countdown
             g_form.clearMessages();
-            g_form.addInfoMessage('Contract retrieved and attached to asset. Form will reload in ' + seconds + '.');
+            g_form.addInfoMessage('Contract retrieved and attached to asset. Form will reload in ' + seconds + '...');
             seconds--;
             if (seconds == 0) {
                 clearInterval();
@@ -81,7 +81,7 @@ function get_contract_response(response) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>a7c6595e078e20103af7f2ae7c1ed084</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>Get Contract</sys_name>
         <sys_overrides/>
         <sys_package display_value="Dell Warranty Import" source="x_500374_dell_warr">1fd99ec207c620103af7f2ae7c1ed0bb</sys_package>
@@ -89,7 +89,7 @@ function get_contract_response(response) {
         <sys_scope display_value="Dell Warranty Import">1fd99ec207c620103af7f2ae7c1ed0bb</sys_scope>
         <sys_update_name>sys_ui_action_a7c6595e078e20103af7f2ae7c1ed084</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-05 23:41:31</sys_updated_on>
+        <sys_updated_on>2021-02-15 02:22:02</sys_updated_on>
         <table>alm_hardware</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>true</ui16_compatible>
